@@ -38,20 +38,75 @@ public class LinkedBookList {
 	//IMPLEMENT -- adds a book at the specific index, 
 	//  or at the end if index is greater than size
 	public void add(Book b, int index){
-		return;
+		
+		BookNode curr = head;
+		
+		if(index < 0)
+		{
+			throw new IndexOutOfBoundsException();
+		}
+		else if(index >= size)
+		{
+			for(int i = 0; i < size-1; i++)
+			{
+				curr = curr.getNext();
+			}
+			
+			curr.setNext(new BookNode(b));
+		}
+		else
+		{
+
+			for(int i = 0; i < index-1; i++)
+			{
+				curr = curr.getNext();
+			}
+			curr.setNext(new BookNode(b, curr.getNext()));
+			
+		}
+		size++;
 	}
 	
 	//IMPLEMENT -- removes a book and returns it, or 
 	//	returns null if book is not present
 	public Book remove(Book b){
-		return null;
+		BookNode curr = head;
+		int counter = 0;
+		 while (!curr.getNext().getBook().equals(b) && counter < size)
+		 {
+			 curr = curr.getNext();
+			 counter++;
+		 }
+		 
+		 if(counter == size)
+		 {
+			 return null;
+		 }
+		 Book temp = curr.getNext().getBook();
+		 curr.setNext(curr.getNext().getNext());
+		 
+		 return temp;
+		 
+		 
 	}
 
 	//IMPLEMENT -- removes a book at a specific index and returns it, 
 	//	or returns null if index is not present
 	public Book remove(int index){
+		BookNode curr = head;
 		
-		return null;
+		if(index < 0 || index >= size)
+		{
+			return null;
+		}
+		
+		for(int i = 0; i < index-1; i++)
+		{
+			curr = curr.getNext();
+		}
+		Book temp = curr.getNext().getBook();
+		curr.setNext(curr.getNext().getNext());
+		return temp;
 	}
 	
 	//IMPLEMENT -- returns the total number of pages in the linked list
