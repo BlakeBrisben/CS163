@@ -72,20 +72,25 @@ public class LinkedBookList {
 	public Book remove(Book b){
 		BookNode curr = head;
 		int counter = 0;
-		 while (!curr.getNext().getBook().equals(b) && counter < size)
-		 {
-			 curr = curr.getNext();
-			 counter++;
-		 }
-		 
-		 if(counter == size)
-		 {
-			 return null;
-		 }
-		 Book temp = curr.getNext().getBook();
-		 curr.setNext(curr.getNext().getNext());
-		 
-		 return temp;
+		
+		if(curr.getBook().getTitle().equals(b.getTitle()))
+		{
+			return remove(0);
+		}
+		while (!curr.getNext().getBook().getTitle().equals(b.getTitle()) && counter < size)
+		{
+		 curr = curr.getNext();
+		 counter++;
+		}
+		
+		if(counter == size)
+		{
+		 return null;
+		}
+		Book temp = curr.getNext().getBook();
+		curr.setNext(curr.getNext().getNext());
+		
+		return temp;
 		 
 		 
 	}
@@ -99,10 +104,19 @@ public class LinkedBookList {
 		{
 			return null;
 		}
+		if (index == 0)
+		{
+			Book temp = curr.getNext().getBook();
+			head = curr.getNext();
+			
+			
+			return temp;
+		}
 		
 		for(int i = 0; i < index-1; i++)
 		{
 			curr = curr.getNext();
+			System.out.println("Moving to next");
 		}
 		Book temp = curr.getNext().getBook();
 		curr.setNext(curr.getNext().getNext());
@@ -111,8 +125,18 @@ public class LinkedBookList {
 	
 	//IMPLEMENT -- returns the total number of pages in the linked list
 	public int totalPages(){
-
-		return 0;
+		BookNode curr = head;
+		int total = curr.getNumPages();
+		
+		
+		for(int i = 0; i < size-1; i++)
+		{
+			curr = curr.getNext();
+			total += curr.getBook().getNumPages();
+			
+		}
+		
+		return total;
 	}
 	
 

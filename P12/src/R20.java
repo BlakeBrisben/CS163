@@ -26,19 +26,24 @@ public class R20 {
 		System.out.println("Testing add");
 		System.out.println(lbl + "\n\n\n");
 		
+		System.out.println("Testing total pages: ");
+		System.out.println(lbl.totalPages() + "\n\n\n");
+		
 		System.out.println("Testing add2: ");
 		lbl.add(new Book("Cookies", "Cookie Monster", 37), 4);
 		System.out.println(lbl + "\n\n\n");
 		
-		
-		
-		System.out.println("Testing remove: ");
-		lbl.remove(new Book("Z", "Therese Anne Fowler", 384));
+		System.out.println("Testing remove2: ");
+		lbl.remove(0);
 		System.out.println(lbl + "\n\n\n");
 		
-		System.out.println("Testing remove2: ");
-		lbl.remove(4);
-		System.out.println(lbl);
+		System.out.println("Testing remove: ");
+		lbl.remove(new Book("Manuscript Found in Accra", "Debbie Macomber", 352));
+		System.out.println(lbl + "\n\n\n");
+		
+		
+		
+		
 		
 		scan.close();
 	}
