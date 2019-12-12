@@ -73,11 +73,11 @@ public class LinkedBookList {
 		BookNode curr = head;
 		int counter = 0;
 		
-		if(curr.getBook().getTitle().equals(b.getTitle()))
+		if(curr.getBook().equals(b))
 		{
 			return remove(0);
 		}
-		while (!curr.getNext().getBook().getTitle().equals(b.getTitle()) && counter < size)
+		while (!curr.getNext().getBook().equals(b) && counter < size)
 		{
 		 curr = curr.getNext();
 		 counter++;
@@ -106,7 +106,7 @@ public class LinkedBookList {
 		}
 		if (index == 0)
 		{
-			Book temp = curr.getNext().getBook();
+			Book temp = curr.getBook();
 			head = curr.getNext();
 			
 			

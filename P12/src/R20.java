@@ -33,12 +33,16 @@ public class R20 {
 		lbl.add(new Book("Cookies", "Cookie Monster", 37), 4);
 		System.out.println(lbl + "\n\n\n");
 		
-		System.out.println("Testing remove2: ");
-		lbl.remove(0);
-		System.out.println(lbl + "\n\n\n");
+		
 		
 		System.out.println("Testing remove: ");
-		lbl.remove(new Book("Manuscript Found in Accra", "Debbie Macomber", 352));
+		lbl.remove(new Book("Manuscript Found in Accra", "Paulo Coalho", 208));
+		System.out.println(lbl + "\n\n\n");
+		
+		lbl.remove(new Book("Cookies", "Cookie Monster", 37));
+		
+		System.out.println("Testing remove2: ");
+		lbl.remove(0);
 		System.out.println(lbl + "\n\n\n");
 		
 		
